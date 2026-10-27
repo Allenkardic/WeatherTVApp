@@ -1,0 +1,82 @@
+[
+  {
+    "id": "big-buck-bunny",
+    "title": "Big Buck Bunny",
+    "description": "A mild-mannered rabbit's quiet day in the meadow turns into a chase when three rodents decide to pick a fight. The short follows his patient, then very decisive, reply.",
+    "year": 2008,
+    "genre": "Comedy",
+    "posterUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=500&h=750&q=80",
+    "backdropUrl": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1280&h=720&q=80",
+    "videoUrl": "https://archive.org/download/BigBuckBunny_328/BigBuckBunny_512kb.mp4"
+  },
+  {
+    "id": "sintel",
+    "title": "Sintel",
+    "description": "A young woman crosses ice and abandoned halls searching for the dragon she raised. The journey costs more than the reunion she is hoping for.",
+    "year": 2010,
+    "genre": "Fantasy",
+    "posterUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&h=750&q=80",
+    "backdropUrl": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1280&h=720&q=80",
+    "videoUrl": "https://archive.org/download/Sintel/sintel-2048-surround.mp4"
+  },
+  {
+    "id": "elephants-dream",
+    "title": "Elephants Dream",
+    "description": "Two travelers move through a machine-like world that keeps rebuilding itself around them. One wants to stay. The other wants a way out.",
+    "year": 2006,
+    "genre": "Science Fiction",
+    "posterUrl": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=500&h=750&q=80",
+    "backdropUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1280&h=720&q=80",
+    "videoUrl": "https://archive.org/download/ElephantsDream/ed_1024_512kb.mp4"
+  },
+  {
+    "id": "tears-of-steel",
+    "title": "Tears of Steel",
+    "description": "In a ruined Amsterdam, a small crew tries to pull a friend back from a machine that no longer recognizes her. The rescue is a race against the city coming apart.",
+    "year": 2012,
+    "genre": "Science Fiction",
+    "posterUrl": "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=500&h=750&q=80",
+    "backdropUrl": "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=1280&h=720&q=80",
+    "videoUrl": "https://archive.org/download/Tears-of-Steel/tears_of_steel_720p.mp4"
+  },
+  {
+    "id": "glass-tide",
+    "title": "Glass Tide",
+    "description": "A quiet look at light moving through open water. There is no narration, only the slow shift of color as the current changes.",
+    "year": 2016,
+    "genre": "Documentary",
+    "posterUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&h=750&q=80",
+    "backdropUrl": "https://images.unsplash.com/photo-1439405326854-014607f694d7?auto=format&fit=crop&w=1280&h=720&q=80",
+    "videoUrl": "https://samplelib.com/lib/preview/mp4/sample-20s.mp4"
+  },
+  {
+    "id": "field-notes",
+    "title": "Field Notes",
+    "description": "A close study of a single flower in the wind. The short stays on one subject and lets the motion of the petals carry the scene.",
+    "year": 2019,
+    "genre": "Drama",
+    "posterUrl": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=500&h=750&q=80",
+    "backdropUrl": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?auto=format&fit=crop&w=1280&h=720&q=80",
+    "videoUrl": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+  },
+  {
+    "id": "night-signal",
+    "title": "Night Signal",
+    "description": "A late shift in an empty control room, told through flickering screens and a signal that will not stay steady. The operator has one window to answer it.",
+    "year": 2021,
+    "genre": "Thriller",
+    "posterUrl": "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=500&h=750&q=80",
+    "backdropUrl": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1280&h=720&q=80",
+    "videoUrl": "https://samplelib.com/lib/preview/mp4/sample-15s.mp4"
+  },
+  {
+    "id": "open-frame",
+    "title": "Open Frame",
+    "description": "A brisk cut through streets, crowds, and open sky. The piece is built as a trailer: short scenes, hard cuts, and no time wasted on setup.",
+    "year": 2014,
+    "genre": "Adventure",
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=500&h=750&q=80",
+    "backdropUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=1280&h=720&q=80",
+    "videoUrl": "https://samplelib.com/lib/preview/mp4/sample-10s.mp4"
+  }
+]

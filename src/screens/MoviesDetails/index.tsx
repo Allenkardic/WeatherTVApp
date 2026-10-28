@@ -94,7 +94,7 @@ export function MovieDetailScreen() {
           </Text>
           <Text
             variant="body"
-            color="rgba(255,255,255,0.86)"
+            color={colors.softWhite}
             style={styles.description}
           >
             {movie.description}
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
   },
   scrim: {
     ...StyleSheet.absoluteFill,
-    backgroundColor: 'rgba(12, 9, 50, 0.72)',
+    backgroundColor: colors.detailsScrim,
   },
   content: {
     flex: 1,
@@ -199,8 +199,8 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.sm,
     borderRadius: borderRadius.round,
     borderWidth: scaledSize(3),
-    borderColor: 'rgba(255,255,255,0.7)',
-    backgroundColor: 'transparent',
+    borderColor: colors.whiteBorder,
+    backgroundColor: colors.transparent,
   },
   playFocused: {
     backgroundColor: colors.gold,
@@ -213,8 +213,8 @@ const styles = StyleSheet.create({
     borderTopWidth: scaledSize(12),
     borderBottomWidth: scaledSize(12),
     borderLeftWidth: scaledSize(18),
-    borderTopColor: 'transparent',
-    borderBottomColor: 'transparent',
+    borderTopColor: colors.transparent,
+    borderBottomColor: colors.transparent,
     borderLeftColor: colors.white,
   },
   missing: {

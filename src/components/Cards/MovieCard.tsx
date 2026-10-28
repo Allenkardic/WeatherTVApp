@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     width: MOVIE_CARD_WIDTH,
     borderRadius: borderRadius.xlarge + scaledSize(8),
     borderWidth: scaledSize(4),
-    borderColor: 'transparent',
+    borderColor: colors.transparent,
   },
   pressableFocused: {
     borderColor: colors.gold,
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     height: '62%',
-    backgroundColor: 'rgba(10, 16, 28, 0.12)',
+    backgroundColor: colors.cardShadeFar,
   },
   shadeMid: {
     position: 'absolute',
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     height: '46%',
-    backgroundColor: 'rgba(10, 16, 28, 0.38)',
+    backgroundColor: colors.cardShadeMid,
   },
   shadeNear: {
     position: 'absolute',
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     height: '32%',
-    backgroundColor: 'rgba(10, 16, 28, 0.62)',
+    backgroundColor: colors.cardShadeNear,
   },
   footer: {
     position: 'absolute',
@@ -174,8 +174,8 @@ const styles = StyleSheet.create({
     borderTopWidth: scaledSize(9),
     borderBottomWidth: scaledSize(9),
     borderLeftWidth: scaledSize(14),
-    borderTopColor: 'transparent',
-    borderBottomColor: 'transparent',
+    borderTopColor: colors.transparent,
+    borderBottomColor: colors.transparent,
     borderLeftColor: colors.white,
   },
   more: {

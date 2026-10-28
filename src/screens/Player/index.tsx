@@ -307,7 +307,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: spacing.sm,
-    backgroundColor: 'rgba(0,0,0,0.55)',
+    backgroundColor: colors.overlay,
   },
   centerStatus: {
     ...StyleSheet.absoluteFill,
@@ -318,7 +318,7 @@ const styles = StyleSheet.create({
     width: scaledSize(140),
     height: scaledSize(140),
     borderRadius: borderRadius.round,
-    backgroundColor: 'rgba(0,0,0,0.55)',
+    backgroundColor: colors.overlay,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -329,8 +329,8 @@ const styles = StyleSheet.create({
     borderTopWidth: scaledSize(28),
     borderBottomWidth: scaledSize(28),
     borderLeftWidth: scaledSize(44),
-    borderTopColor: 'transparent',
-    borderBottomColor: 'transparent',
+    borderTopColor: colors.transparent,
+    borderBottomColor: colors.transparent,
     borderLeftColor: colors.white,
   },
   controls: {
@@ -341,7 +341,7 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
     padding: spacing.lg,
     borderRadius: borderRadius.xlarge,
-    backgroundColor: 'rgba(8, 10, 24, 0.78)',
+    backgroundColor: colors.controlsScrim,
   },
   statusRow: {
     flexDirection: 'row',
@@ -361,7 +361,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: scaledSize(10),
     borderRadius: borderRadius.round,
-    backgroundColor: 'rgba(255,255,255,0.28)',
+    backgroundColor: colors.progressTrack,
     justifyContent: 'center',
   },
   fill: {
@@ -383,8 +383,8 @@ const styles = StyleSheet.create({
     borderTopWidth: scaledSize(10),
     borderBottomWidth: scaledSize(10),
     borderLeftWidth: scaledSize(16),
-    borderTopColor: 'transparent',
-    borderBottomColor: 'transparent',
+    borderTopColor: colors.transparent,
+    borderBottomColor: colors.transparent,
     borderLeftColor: colors.white,
   },
   pauseIcon: {

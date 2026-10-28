@@ -165,7 +165,7 @@ Layout sizes are designed at 1920px wide and scaled with `scaledSize`, so type a
 
 ### Navigation and state
 
-`AppNavigator` is a native stack with the header hidden. Home stays mounted underneath details, which is what makes focus restoration possible. `FocusProvider` stores the last focused movie id in React state. It is not Redux and it is not written to disk.
+`AppNavigator` is a native stack with the header hidden. Home stays mounted underneath details, which is what makes focus restoration possible. State is managed with the React Context API. `FocusProvider` in `src/context` holds the last focused movie id in memory for the session. Playback position stays local to the player and is not stored in that context.
 
 Selecting a card saves that id and navigates to `movie-details`. Back from details returns to the list. After the home screen has been left once, it scrolls the saved card to the center and calls `requestTVFocus()`. The first launch focuses the first card with `hasTVPreferredFocus`.
 

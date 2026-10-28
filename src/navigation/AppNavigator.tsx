@@ -1,12 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { HomeScreen, MovieDetailScreen } from '../screens';
+import { HomeScreen, MovieDetailScreen, PlayerScreen } from '../screens';
 import { colors, routes } from '../utils';
-
-export type RootStackParamList = {
-  [routes.HOME]: undefined;
-  [routes.MOVIE_DETAILS]: { movieId: string };
-};
+import type { RootStackParamList } from './types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -24,6 +20,12 @@ export function AppNavigator() {
         <Stack.Screen
           name={routes.MOVIE_DETAILS}
           component={MovieDetailScreen}
+          options={{ contentStyle: { backgroundColor: colors.primary } }}
+        />
+        <Stack.Screen
+          name={routes.PLAYER}
+          component={PlayerScreen}
+          options={{ contentStyle: { backgroundColor: colors.black } }}
         />
       </Stack.Navigator>
     </NavigationContainer>

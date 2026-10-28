@@ -228,4 +228,6 @@ This is a television demo, not a streaming service.
 
 **Android video fails while Apple TV plays the same file.** The Android log will show an `SSLHandshakeException` for an untrusted certificate. Point `videoUrl` at an MP4 whose certificate chain current Android trusts. Archive.org hosts that still send the Go Daddy Class 2 root fail on Android and succeed on Apple TV.
 
+**Android images fail with `Chain validation failed`.** The emulator clock is behind real time, so Android rejects the image host's revocation check. Set it with `adb shell cmd alarm set-time` and a current Unix time in milliseconds, then open the movie again.
+
 **Metro is already running.** Add `--no-packager` to the launch command, or stop the other process on port 8081.

@@ -62,24 +62,26 @@ export function MovieDetailScreen() {
       )}
       <View style={styles.scrim} />
       <View style={styles.content}>
-        {posterFailed ? (
-          <View style={styles.posterFallback}>
-            <Text
-              variant="title"
-              color={colors.white}
-              style={styles.posterLabel}
-            >
-              {movie.title}
-            </Text>
-          </View>
-        ) : (
-          <Image
-            source={{ uri: movie.posterUrl }}
-            style={styles.poster}
-            resizeMode="cover"
-            onError={() => setPosterFailed(true)}
-          />
-        )}
+        <View style={styles.posterFrame}>
+          {posterFailed ? (
+            <View style={styles.posterFallback}>
+              <Text
+                variant="title"
+                color={colors.white}
+                style={styles.posterLabel}
+              >
+                {movie.title}
+              </Text>
+            </View>
+          ) : (
+            <Image
+              source={{ uri: movie.posterUrl }}
+              style={styles.poster}
+              resizeMode="cover"
+              onError={() => setPosterFailed(true)}
+            />
+          )}
+        </View>
         <View style={styles.copy}>
           <View style={styles.genrePill}>
             <Text variant="caption" color={colors.primary} fontWeight="700">
@@ -155,16 +157,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xl,
     gap: spacing.xl,
   },
-  poster: {
+  posterFrame: {
     width: POSTER_WIDTH,
     height: POSTER_HEIGHT,
     borderRadius: borderRadius.xlarge,
+    overflow: 'hidden',
     backgroundColor: colors.defaultBlack,
   },
+  poster: {
+    width: '100%',
+    height: '100%',
+  },
   posterFallback: {
-    width: POSTER_WIDTH,
-    height: POSTER_HEIGHT,
-    borderRadius: borderRadius.xlarge,
+    flex: 1,
     backgroundColor: colors.secondary,
     alignItems: 'center',
     justifyContent: 'center',

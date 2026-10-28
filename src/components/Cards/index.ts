@@ -1,2 +1,2 @@
-export { MovieCard } from './MovieCard';
-export type { IMovie } from './MovieCard';
+export { MOVIE_CARD_WIDTH, MovieCard } from './MovieCard';
+export type { IFocusTarget, IMovie } from './MovieCard';

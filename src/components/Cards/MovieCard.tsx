@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { forwardRef, useState, type Ref } from 'react';
 import {
   Image,
   Pressable,
@@ -20,77 +20,88 @@ export type IMovie = {
   videoUrl: string;
 };
 
-type MovieCardProps = {
+export type IFocusTarget = {
+  requestTVFocus?: () => void;
+  setNativeProps?: (props: { hasTVPreferredFocus?: boolean }) => void;
+};
+
+type IMovieCardProps = {
   movie: IMovie;
   hasTVPreferredFocus?: boolean;
   onPress?: PressableProps['onPress'];
+  onFocused?: (movieId: string) => void;
 };
 
-const CARD_WIDTH = scaledSize(640);
+export const MOVIE_CARD_WIDTH = scaledSize(640);
 const CARD_HEIGHT = scaledSize(400);
 
-export function MovieCard({
-  movie,
-  hasTVPreferredFocus = false,
-  onPress,
-}: MovieCardProps) {
-  const [focused, setFocused] = useState(false);
-  const [imageFailed, setImageFailed] = useState(false);
-  const imageUri = movie.backdropUrl ?? movie.posterUrl;
+export const MovieCard = forwardRef<IFocusTarget, IMovieCardProps>(
+  function MovieCard(
+    { movie, hasTVPreferredFocus = false, onPress, onFocused },
+    ref,
+  ) {
+    const [focused, setFocused] = useState(false);
+    const [imageFailed, setImageFailed] = useState(false);
+    const imageUri = movie.backdropUrl ?? movie.posterUrl;
 
-  return (
-    <Pressable
-      accessibilityRole="button"
-      accessibilityLabel={`${movie.title}, ${movie.year}`}
-      hasTVPreferredFocus={hasTVPreferredFocus}
-      onPress={onPress}
-      onFocus={() => setFocused(true)}
-      onBlur={() => setFocused(false)}
-      style={[styles.pressable, focused && styles.pressableFocused]}
-    >
-      <View style={styles.card}>
-        {imageFailed ? (
-          <View style={styles.imageFallback} />
-        ) : (
-          <Image
-            source={{ uri: imageUri }}
-            style={styles.image}
-            resizeMode="cover"
-            onError={() => setImageFailed(true)}
-          />
-        )}
-        <View style={styles.shadeFar} />
-        <View style={styles.shadeMid} />
-        <View style={styles.shadeNear} />
-        <View style={styles.footer}>
-          <Text
-            variant="title"
-            color={colors.white}
-            fontWeight="600"
-            numberOfLines={1}
-          >
-            {movie.title}
-          </Text>
-          <View style={styles.metaRow}>
-            <View style={styles.metaLead}>
-              <View style={styles.playIcon} />
-              <Text variant="body" color={colors.white} fontWeight="500">
-                {movie.year}
+    return (
+      <Pressable
+        ref={ref as Ref<View>}
+        accessibilityRole="button"
+        accessibilityLabel={`${movie.title}, ${movie.year}`}
+        hasTVPreferredFocus={hasTVPreferredFocus}
+        onPress={onPress}
+        onFocus={() => {
+          setFocused(true);
+          onFocused?.(movie.id);
+        }}
+        onBlur={() => setFocused(false)}
+        style={[styles.pressable, focused && styles.pressableFocused]}
+      >
+        <View style={styles.card}>
+          {imageFailed ? (
+            <View style={styles.imageFallback} />
+          ) : (
+            <Image
+              source={{ uri: imageUri }}
+              style={styles.image}
+              resizeMode="cover"
+              onError={() => setImageFailed(true)}
+            />
+          )}
+          <View style={styles.shadeFar} />
+          <View style={styles.shadeMid} />
+          <View style={styles.shadeNear} />
+          <View style={styles.footer}>
+            <Text
+              variant="title"
+              color={colors.white}
+              fontWeight="600"
+              numberOfLines={1}
+            >
+              {movie.title}
+            </Text>
+            <View style={styles.metaRow}>
+              <View style={styles.metaLead}>
+                <View style={styles.playIcon} />
+                <Text variant="body" color={colors.white} fontWeight="500">
+                  {movie.year}
+                </Text>
+              </View>
+              <Text variant="title" color={colors.white} style={styles.more}>
+                ···
               </Text>
             </View>
-            <Text variant="title" color={colors.white} style={styles.more}>
-              ···
-            </Text>
           </View>
         </View>
-      </View>
-    </Pressable>
-  );
-}
+      </Pressable>
+    );
+  },
+);
 
 const styles = StyleSheet.create({
   pressable: {
-    width: CARD_WIDTH,
+    width: MOVIE_CARD_WIDTH,
     borderRadius: borderRadius.xlarge + scaledSize(8),
     borderWidth: scaledSize(4),
     borderColor: 'transparent',

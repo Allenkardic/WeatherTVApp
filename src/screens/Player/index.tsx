@@ -12,24 +12,27 @@ import {
   StyleSheet,
   TVFocusGuideView,
   View,
-  useTVEventHandler,
 } from 'react-native';
 import Video, { type VideoRef } from 'react-native-video';
 import { Text } from '../../components';
 import { findMovie } from '../../data/movies';
+import { usePlayerRemote } from '../../hooks';
 import type { RootStackParamList } from '../../navigation/types';
 import {
+  SEEK_SECONDS,
   borderRadius,
+  clampPlaybackTime,
   colors,
   formatClock,
+  isPlaybackEnded,
+  playbackProgress,
   routes,
   scaledSize,
+  seekStepLabel,
   spacing,
 } from '../../utils';
 
 type IPlayerRoute = RouteProp<RootStackParamList, typeof routes.PLAYER>;
-
-const SEEK_SECONDS = 10;
 
 export function PlayerScreen() {
   const navigation = useNavigation();
@@ -63,8 +66,7 @@ export function PlayerScreen() {
   }, [navigation]);
 
   const seekTo = useCallback((time: number) => {
-    const limit = durationRef.current > 0 ? durationRef.current : time;
-    const next = Math.min(Math.max(time, 0), limit);
+    const next = clampPlaybackTime(time, durationRef.current);
     positionRef.current = next;
     setPosition(next);
     ignoreProgressUntil.current = Date.now() + 600;
@@ -74,7 +76,7 @@ export function PlayerScreen() {
   const seekBy = useCallback(
     (delta: number) => {
       seekTo(positionRef.current + delta);
-      setSeekLabel(delta > 0 ? `+${SEEK_SECONDS}s` : `−${SEEK_SECONDS}s`);
+      setSeekLabel(seekStepLabel(delta));
       if (seekLabelTimer.current) {
         clearTimeout(seekLabelTimer.current);
       }
@@ -84,9 +86,7 @@ export function PlayerScreen() {
   );
 
   const togglePlayback = useCallback(() => {
-    const atEnd =
-      durationRef.current > 0 && positionRef.current >= durationRef.current - 1;
-    if (atEnd) {
+    if (isPlaybackEnded(positionRef.current, durationRef.current)) {
       seekTo(0);
       setPausedState(false);
       setSeekLabel(null);
@@ -116,46 +116,12 @@ export function PlayerScreen() {
     }, [exitPlayer, setPausedState]),
   );
 
-  useTVEventHandler(
-    useCallback(
-      event => {
-        // A completed press is delivered as key-up. Key-down repeats while
-        // the button is held, so acting on it toggles or seeks twice.
-        if (event.eventKeyAction === 0) {
-          return;
-        }
-        switch (event.eventType) {
-          case 'select':
-          case 'playPause':
-            if (!failed) {
-              togglePlayback();
-            }
-            break;
-          case 'left':
-          case 'rewind':
-          case 'longLeft':
-            if (!failed) {
-              seekBy(-SEEK_SECONDS);
-            }
-            break;
-          case 'right':
-          case 'fastForward':
-          case 'longRight':
-            if (!failed) {
-              seekBy(SEEK_SECONDS);
-            }
-            break;
-          case 'menu':
-          case 'back':
-            exitPlayer();
-            break;
-          default:
-            break;
-        }
-      },
-      [exitPlayer, failed, seekBy, togglePlayback],
-    ),
-  );
+  usePlayerRemote({
+    failed,
+    onTogglePlayback: togglePlayback,
+    onSeekBy: seekBy,
+    onExit: exitPlayer,
+  });
 
   if (!movie) {
     return (
@@ -170,7 +136,7 @@ export function PlayerScreen() {
     );
   }
 
-  const progress = duration > 0 ? Math.min(position / duration, 1) : 0;
+  const progress = playbackProgress(position, duration);
 
   return (
     <TVFocusGuideView

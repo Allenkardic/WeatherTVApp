@@ -4,6 +4,7 @@ export * from './focusMovie';
 export * from './fontSize';
 export * from './formatClock';
 export * from './formatDate';
+export * from './playback';
 export { default as routes } from './routes';
 export * from './scaledSize';
 export * from './spacing';

@@ -12,7 +12,7 @@ import {
 import { useFocusSession } from '../../context';
 import { movies } from '../../data/movies';
 import type { RootStackParamList } from '../../navigation/types';
-import { colors, routes, spacing } from '../../utils';
+import { colors, focusMovie, routes, spacing } from '../../utils';
 
 const ITEM_STRIDE = MOVIE_CARD_WIDTH + spacing.md;
 
@@ -20,17 +20,6 @@ type IHomeNavigation = NativeStackNavigationProp<
   RootStackParamList,
   typeof routes.HOME
 >;
-
-function focusMovie(target: IFocusTarget | null | undefined) {
-  if (!target) {
-    return;
-  }
-  if (typeof target.requestTVFocus === 'function') {
-    target.requestTVFocus();
-    return;
-  }
-  target.setNativeProps?.({ hasTVPreferredFocus: true });
-}
 
 export default function HomeScreen() {
   const navigation = useNavigation<IHomeNavigation>();

@@ -36,7 +36,7 @@ export const MOVIE_CARD_WIDTH = scaledSize(640);
 const CARD_HEIGHT = scaledSize(400);
 
 export const MovieCard = forwardRef<IFocusTarget, IMovieCardProps>(
-  function MovieCard(
+  function MovieCardView(
     { movie, hasTVPreferredFocus = false, onPress, onFocused },
     ref,
   ) {
@@ -98,6 +98,8 @@ export const MovieCard = forwardRef<IFocusTarget, IMovieCardProps>(
     );
   },
 );
+
+MovieCard.displayName = 'MovieCard';
 
 const styles = StyleSheet.create({
   pressable: {

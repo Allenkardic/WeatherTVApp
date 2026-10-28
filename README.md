@@ -4,6 +4,13 @@ WeatherTVApp is a shared React Native app for Android TV and Apple TV. One TypeS
 
 The native runtime is [react-native-tvos](https://github.com/react-native-tvos/react-native-tvos) `0.83.0-0`, installed under the `react-native` package name. UI code in `src/` is shared. Platform-specific code is limited to the Android and tvOS projects, plus one Android TV launch script.
 
+## Screen recordings
+
+Each recording shows launch, the movie list, remote navigation and focus, movie details, playback, play and pause, rewind, fast-forward, and Back.
+
+- [Android TV](https://drive.google.com/file/d/176Gi8yDfRrVw7kzh5bbjWMGZTnDBt5Wj/view?usp=sharing)
+- [Apple TV](https://drive.google.com/file/d/1K2oCQucKoqnKKZEj3-t0jv8beq70zTOE/view?usp=sharing)
+
 ## Requirements
 
 Install these before the first build.

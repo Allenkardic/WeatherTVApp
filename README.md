@@ -214,6 +214,7 @@ This is a television demo, not a streaming service.
 - Custom controls were chosen so one remote map works on both TVs. Native player chrome would be less code and worse D-pad behavior on Android TV.
 - There is no account, search, or offline download path.
 - The Android TV launcher expects an emulator named `Television_1080p_API_36`. A different device name requires editing `scripts/android-tv.sh`.
+- I would recommend Expo for a production version of this app. EAS Update ships JavaScript and asset fixes over the air, so a player or catalog change does not wait on a store review. EAS Build and Submit also remove most of the local Xcode and Gradle release work, config plugins replace hand-edited native projects, and release channels make it possible to roll a build back. This demo stays on the bare react-native-tvos CLI because both TV targets had to be built and run directly. Expo is still the better production default where the TV SDK supports it.
 
 ## Troubleshooting
 
